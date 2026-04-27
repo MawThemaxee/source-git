@@ -5,8 +5,18 @@
 # Placé dans /home/container/git-sync.sh
 # ============================================================
 
-if [ "$GIT_AUTO_UPDATE" != "1" ] || [ -z "$GIT_REPO" ]; then
-    echo "[git-sync] Désactivé ou aucun dépôt configuré, démarrage direct du serveur..."
+echo "[git-sync] Démarrage du script..."
+echo "[git-sync] GIT_AUTO_UPDATE='${GIT_AUTO_UPDATE}'"
+echo "[git-sync] GIT_REPO='${GIT_REPO}'"
+echo "[git-sync] GIT_BRANCH='${GIT_BRANCH}'"
+
+if [ "${GIT_AUTO_UPDATE}" != "1" ]; then
+    echo "[git-sync] GIT_AUTO_UPDATE n'est pas à 1, synchronisation désactivée."
+    exit 0
+fi
+
+if [ -z "${GIT_REPO}" ]; then
+    echo "[git-sync] GIT_REPO est vide, aucun dépôt configuré."
     exit 0
 fi
 
