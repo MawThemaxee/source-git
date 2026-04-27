@@ -5,7 +5,7 @@ set -e
 
 # Configuration
 REGISTRY="ghcr.io"
-USERNAME="MawTheMaxee"  # Change this to your GitHub username
+USERNAME="mawthemaxee"  # Change this to your GitHub username
 IMAGE_NAME="gmod-git"
 VERSION="latest"
 FULL_IMAGE="${REGISTRY}/${USERNAME}/${IMAGE_NAME}:${VERSION}"
