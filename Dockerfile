@@ -14,10 +14,7 @@ RUN apt-get update && \
     htop \
     && rm -rf /var/lib/apt/lists/*
 
-# Switch back to default user (pterouser)
-USER pterouser
-
-# Configure git (optional - sets default user for automated commits if needed)
+# Configure git global defaults
 RUN git config --global user.email "noreply@pterodactyl.local" && \
     git config --global user.name "Pterodactyl Server"
 
