@@ -1,5 +1,8 @@
 FROM ghcr.io/ptero-eggs/games:source
 
+# Switch to root for package installation
+USER root
+
 # Install git and other useful tools
 RUN apt-get update && \
     apt-get install -y \
@@ -10,6 +13,9 @@ RUN apt-get update && \
     vim \
     htop \
     && rm -rf /var/lib/apt/lists/*
+
+# Switch back to default user (pterouser)
+USER pterouser
 
 # Configure git (optional - sets default user for automated commits if needed)
 RUN git config --global user.email "noreply@pterodactyl.local" && \
